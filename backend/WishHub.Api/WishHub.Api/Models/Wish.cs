@@ -9,6 +9,6 @@ namespace WishHub.Api.Models
         public string? Category { get; set; }
         public string? Link { get; set; }
         public double? Price { get; set; }
-        public WishStatus Status { get; set; } = 0;
+        public WishStatus Status { get; set; } = WishStatus.Pending;
     }
 }
