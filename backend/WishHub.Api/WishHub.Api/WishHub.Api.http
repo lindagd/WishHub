@@ -1,1 +1,43 @@
 @WishHub.Api_HostAddress = http://localhost:5129
+
+GET {{WishHub.Api_HostAddress}}/api/wishes
+Accept: application/json
+
+###
+
+POST {{WishHub.Api_HostAddress}}/api/wishes
+Content-Type: application/json
+{
+    "title": "Epomaker F95 Keyboard",
+    "category": "PC Setup",
+    "Link": "https://pt.aliexpress.com/item/1005006907892071.html?spm=a2g0o.productlist.main.1.585d555fKhboFv&algo_pvid=8fa4a8b6-7fba-49cd-90f4-0ac68660a10a&algo_exp_id=8fa4a8b6-7fba-49cd-90f4-0ac68660a10a-0&pdp_npi=4%40dis%21BRL%21674.63%21288.08%21%21%21767.32%21327.66%21%402101c5ac17361840139008018e8613%2112000038681584769%21sea%21BR%211678904745%21ACX&curPageLogUid=r5Xb3XhWLMFd&utparam-url=scene%3Asearch%7Cquery_from%3A",
+    "Price": 288.08
+}
+
+###
+
+PUT {{WishHub.Api_HostAddress}}/api/wishes/1
+Content-Type: application/json
+{
+    "id": 1,
+    "title": "Updated Keyboard",
+    "category": "PC Setup",
+    "link": "https://example.com/keyboard-updated",
+    "price": 400,
+    "status": 1
+}
+
+###
+
+POST {{WishHub.Api_HostAddress}}/api/wishes
+Content-Type: application/json
+{
+    "title": "To be deleted",
+    "category": "some",
+    "Link": "none",
+    "Price": 0.0
+}
+
+###
+
+DELETE {{WishHub.Api_HostAddress}}/api/wishes/2
