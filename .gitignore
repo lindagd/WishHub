@@ -1,0 +1,41 @@
+# .NET build files
+**/bin/
+**/obj/
+**/*.rsuser
+**/*.user
+**/*.userosscache
+**/*.sln.docstates
+**/*.suo
+**/*.lock.json
+**/*.log
+
+# Node.js dependencies (frontend)
+frontend/node_modules/
+frontend/.env
+
+# Logs
+**/logs/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/lerna-debug.log*
+
+# Build outputs (frontend)
+frontend/dist/
+frontend/dist-ssr/
+
+# Local files (frontend)
+frontend/*.local
+
+# Editor directories and files
+**/.vs/
+**/.vscode/
+**/!.vscode/extensions.json  # Inclui apenas extensões recomendadas no repositório
+.idea/
+**/.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
