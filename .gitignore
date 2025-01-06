@@ -31,11 +31,9 @@ frontend/*.local
 # Editor directories and files
 **/.vs/
 **/.vscode/
-**/!.vscode/extensions.json  # Inclui apenas extensões recomendadas no repositório
-.idea/
+**/!.vscode/extensions.json
 **/.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
