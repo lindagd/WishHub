@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar'
 
 const Home = () => {
     return(
-        <div className="flex flex-row">
+        <div className="flex flex-row my-10">
             <Sidebar />
             <WishesTable />
         </div>
