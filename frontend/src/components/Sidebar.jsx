@@ -3,7 +3,7 @@ import '../index.css'
 
 const Sidebar = () => {
     return(
-        <div className="flex w-1/5 p-4 bg-pink/30 border-2 border-pink rounded-lg text-white space-x-2">
+        <div className="flex flex-wrap w-1/5 h-fit p-5 bg-pink/20 rounded-md text-white space-x-2">
             <img src="https://via.placeholder.com/100" alt="User" className="size-20 rounded-full" />
             <div className="flex flex-col items-center">
                 <div className="text-xs text-pink">

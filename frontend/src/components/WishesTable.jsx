@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 const WishesTable = () => {
     let wishes = [
@@ -8,10 +9,10 @@ const WishesTable = () => {
     ]
 
     return(
-     <div>
-        <h2>Current Wishes</h2>
-        <table>
-            <thead>
+     <div className="w-3/4">
+        <h2 className="text-xl text-center font-bol text-blue border-blue">Current Wishes</h2>
+        <table className="w-full table-auto mt-4">
+            {/* <thead>
                 <tr>
                     <th>Title</th>
                     <th>Category</th>
@@ -19,15 +20,18 @@ const WishesTable = () => {
                     <th>Price</th>
                     <th>Status</th>
                 </tr>
-            </thead>
+            </thead> */}
             <tbody>
                 {wishes.map((w, index) => (
-                    <tr key={index}>
-                        <td>{w.title}</td>
+                    <tr key={index} className="odd:border-pink odd:text-pink odd:bg-pink/15
+                                                even:text-blue even:border-blue even:bg-blue/15
+                                                border-l-2">
+                        <td className="px-4 py-2">{w.title}</td>
                         <td>{w.category}</td>
-                        <td><a href={w.link}>{w.link}</a></td>
-                        <td>{w.price.toFixed(2)}</td>
-                        <td>{w.status}</td>
+                        <td><a href={w.link} className="underline decoration-wavy hover:decoration-sky-500">View product</a></td>
+                        <td>${w.price.toFixed(2)}</td>
+                        <td><Link to="/wish/1/edit">Edit</Link></td>
+                        <td><Link to="/wish/1/delete">Delete</Link></td>
                     </tr>
                 ))}
             </tbody>
