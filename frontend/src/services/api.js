@@ -51,4 +51,13 @@ export const markAsAchieved = async(id) => {
     }
 }
 
+export const deleteWish = async(id) => {
+    try {
+        await api.delete(`/wishes/${id}`);
+    } catch (error) {
+        console.error("Error deleting wish:", error);
+        throw error;
+    }
+}
+
 export default api

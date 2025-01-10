@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { getAchievedWishes, getPendingWishes, markAsAchieved } from "../services/api"
 import NewWishForm from "./NewWishForm";
+import DeleteWishButton from "./DeleteWishButton";
 
 const WishesTable = () => {
     const [wishes, setWishes] = useState([]);
@@ -69,8 +70,8 @@ const WishesTable = () => {
                             </td>
                             <td className="px-4 py-2"><Link to={`/wish/${w.id + 1}/edit`}
                                     className="text-green-600 hover:underline mr-4">Edit</Link>
-                            <Link to={`/wish/${w.id + 1}/delete`}
-                                    className="text-red-600 hover:underline">Delete</Link></td>
+                            <DeleteWishButton wishId={w.id} />
+                            </td>
                         </tr>
                     ))}
                 </tbody>

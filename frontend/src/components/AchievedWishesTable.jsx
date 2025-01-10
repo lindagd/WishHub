@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { getAchievedWishes, getPendingWishes, markAsAchieved } from "../services/api"
 import NewWishForm from "./NewWishForm";
+import DeleteWishButton from "./DeleteWishButton";
 
 const AchievedWishesTable = () => {
     const [wishes, setWishes] = useState([]);
@@ -14,12 +15,7 @@ const AchievedWishesTable = () => {
         fetchData();
     }, []);
 
-    const handleAddWish = (newWish) => {
-        setWishes((prevWishes) => [...prevWishes, newWish]);
-    };
-
-    const handleMarkAsAchieved = async (wishId) => {
-        await markAsAchieved(wishId);
+    const handleDeleteWish = async (wishId) => {
         setWishes((prevWishes) => prevWishes.filter((w) => w.id !== wishId));
     }
     
@@ -52,8 +48,7 @@ const AchievedWishesTable = () => {
                             <td className="px-4 py-2 ">${w.price.toFixed(2)}</td>
                             
                             <td className="px-4 py-2">
-                                <Link to={`/wish/${w.id + 1}/delete`}
-                                        className="text-red-600 hover:underline">Delete</Link>
+                                <DeleteWishButton wishId={w.id} onDelete={handleDeleteWish} />
                             </td>
                         </tr>
                     ))}
