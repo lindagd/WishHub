@@ -6,7 +6,7 @@ const Navbar = () => {
     return(
     <div className="text-base border-b border-lightpink p-4">
         <nav className="flex justify-between">
-            <Link to="/" className="text-pink font-bold">WishHub</Link>
+            <Link to="/" className="text-pink font-bold font-display">WishHub</Link>
             <div className="flex space-x-8">
                 <Link to="/">Home</Link> 
                 <Link to="/achievements">Achievements</Link>

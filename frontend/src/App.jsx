@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar';
 
 function App() {
   return (
-    <div className='flex flex-col h-screen mx-6 font-mono text-sm'>
+    <div className='flex flex-col h-screen mx-6 text-sm'>
       <BrowserRouter>
         <Navbar />
         <Routes>

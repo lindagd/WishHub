@@ -7,9 +7,12 @@ const Sidebar = () => {
             <img src="https://via.placeholder.com/100" alt="User" className="size-24 rounded-full border-2 border-pink/50 shadow-sm" />
             <div className="flex flex-col items-center">
                 <div>
-                    <div className="text-lg font-bold text-pink">Username</div>  
+                    <div className="text-lg font-sans font-bold text-pink
+                                    transition=all duration-700 ease-in-out hover:tracking-widest">
+                        Username
+                    </div>  
                     <div className="text-xs space-y-2">
-                       <p>3 Pending Wishes</p>
+                       <p className="font-sans">3 Pending Wishes</p>
                         <p>5 Completed Wishes</p>
                         <p className="font-semibold text-blue">Total Spent: $500.00</p> 
                     </div>

@@ -10,7 +10,7 @@ const WishesTable = () => {
 
     return(
      <div className="w-2/3 mx-auto">
-        <h2 className="text-2xl text-center font-bol text-blue border-blue mb-4">Current Wishes</h2>
+        <h2 className="text-2xl text-center font-display font-bold text-blue border-blue mb-4">Current Wishes</h2>
         <table className="w-full table-auto border-collapse bg-white shadow-lg rounded-md overflow-hidden">
             {/* <thead>
                 <tr>
@@ -25,10 +25,13 @@ const WishesTable = () => {
                 {wishes.map((w) => (
                     <tr key={w.id} className="odd:bg-pink/15
                                               even:bg-blue/15
-                                              hover:bg-gray-200">
+                                              transition duration-700 ease-in-out
+                                              hover:bg-lightpink/50">
                         <td className="px-4 py-2">{w.title}</td>
                         <td className="px-4 py-2">{w.category}</td>
                         <td className="px-4 py-2"><a href={w.link} className="underline decoration-wavy
+                                                        transition duration-700 ease-in-out
+                                                        hover:text-pink
                                                         hover:decoration-sky-500"
                                                         target="_blank"
                                                         rel="noopener noreferrer">

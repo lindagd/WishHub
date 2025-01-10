@@ -12,7 +12,11 @@ export default {
         'blue': '#2E84A6',
         'pink': '#F24464',
         'lightpink': '#F2B6A0',
-      }
+      },
+      fontFamily: {
+        'sans': ['Roboto', 'sans-serif'],
+        'display': ['Poppins', 'sans-serif'],
+      },
     },
   },
   plugins: [],
