@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { getPendingWishes, getWishes } from "../services/api"
+import NewWishForm from "./NewWishForm";
 
 const WishesTable = () => {
     const [wishes, setWishes] = useState([]);
@@ -12,6 +13,10 @@ const WishesTable = () => {
         }
         fetchData();
     }, []);
+
+    const handleAddWish = (newWish) => {
+        setWishes((prevWishes) => [...prevWishes, newWish]);
+    };
     
     return(
      <div className="w-2/3 mx-auto">
@@ -20,9 +25,7 @@ const WishesTable = () => {
             <p className="text-center text-gray-800">
                 You have no pending wishes at the moment. Add a wish to your list.
             </p>
-            )
-            :
-            (
+            ):(
             <table className="w-full table-auto border-collapse bg-white shadow-lg rounded-md overflow-hidden">
                 <tbody>
                     {wishes.map((w) => (
@@ -50,8 +53,8 @@ const WishesTable = () => {
                     ))}
                 </tbody>
             </table>
-            )
-        }
+        )}
+        <NewWishForm onAddWish={handleAddWish}/>
      </div>   
     )
 }

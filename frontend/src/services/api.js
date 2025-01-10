@@ -21,4 +21,15 @@ export const getPendingWishes = async () => {
     }
 }
 
+export const createWish = async(wishData) => {
+    try {
+        const response = await api.post('/wishes', wishData);
+        return response.data;
+    } catch (error) {
+        console.error("Error creating the wish:", error);
+        throw error;
+    }
+}
+
+
 export default api
