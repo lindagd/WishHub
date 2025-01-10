@@ -3,22 +3,13 @@ import { Link } from "react-router-dom"
 import { getAchievedWishes, getPendingWishes, markAsAchieved } from "../services/api"
 import NewWishForm from "./NewWishForm";
 
-const WishesTable = () => {
+const AchievedWishesTable = () => {
     const [wishes, setWishes] = useState([]);
-    const [achievedWishes, setAchievedWishes] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await getPendingWishes();
-            setWishes(data);
-        }
-        fetchData();
-    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
             const data = await getAchievedWishes();
-            setAchievedWishes(data);
+            setWishes(data);
         }
         fetchData();
     }, []);
@@ -34,10 +25,10 @@ const WishesTable = () => {
     
     return(
      <div className="w-2/3 mx-auto">
-        <h2 className="text-2xl text-center font-display font-bold text-blue border-blue mb-4">Current Wishes</h2>
+        <h2 className="text-2xl text-center font-display font-bold text-blue border-blue mb-4">Achieved Wishes</h2>
         { wishes.length == 0 ? (
             <p className="text-center text-gray-800">
-                You have no pending wishes at the moment. Add a wish to your list.
+                You have no achieved wishes at the moment. Don't be sad. You'll get there!
             </p>
             ):(
             <table className="w-full table-auto border-collapse bg-white shadow-lg rounded-md overflow-hidden">
@@ -60,25 +51,17 @@ const WishesTable = () => {
                             </td>
                             <td className="px-4 py-2 ">${w.price.toFixed(2)}</td>
                             
-                            <td className="text-xs">
-                                <button onClick={() => handleMarkAsAchieved(w.id)}
-                                        className="py-1 px-2 rounded-md bg-green-600 text-white
-                                                   hover:bg-green-700 transition duration-200">
-                                    Mark as achieved
-                                </button>
+                            <td className="px-4 py-2">
+                                <Link to={`/wish/${w.id + 1}/delete`}
+                                        className="text-red-600 hover:underline">Delete</Link>
                             </td>
-                            <td className="px-4 py-2"><Link to={`/wish/${w.id + 1}/edit`}
-                                    className="text-green-600 hover:underline mr-4">Edit</Link>
-                            <Link to={`/wish/${w.id + 1}/delete`}
-                                    className="text-red-600 hover:underline">Delete</Link></td>
                         </tr>
                     ))}
                 </tbody>
             </table>
         )}
-        <NewWishForm onAddWish={handleAddWish}/>
      </div>   
     )
 }
 
-export default WishesTable
+export default AchievedWishesTable

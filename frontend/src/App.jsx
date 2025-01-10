@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './pages/Home'; 
-import Sidebar from './components/Sidebar';
+import Achievements from './pages/Achievements'; 
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" Component={Home} />
-          <Route path="/achievements" />
+          <Route exact path="/achievements" Component={Achievements} />
         </Routes>
       </BrowserRouter>
     </div>

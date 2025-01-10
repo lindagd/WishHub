@@ -16,8 +16,18 @@ export const getPendingWishes = async () => {
         const response = await api.get('/wishes/pending');
         return response.data;
     } catch (error) {
-        console.error("Erro ao buscar os desejos:", error);
-        return undefined;
+        console.error("Error fetching pending wishes:", error);
+        return [];
+    }
+}
+
+export const getAchievedWishes = async () => {
+    try {
+        const response = await api.get('/wishes/achieved');
+        return response.data;
+    } catch (error) {
+        console.error("Erro fetching achieved wishes:", error);
+        return [];
     }
 }
 
