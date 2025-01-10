@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { getPendingWishes, getWishes } from "../services/api"
+import { getPendingWishes, markAsAchieved } from "../services/api"
 import NewWishForm from "./NewWishForm";
 
 const WishesTable = () => {
@@ -17,6 +17,11 @@ const WishesTable = () => {
     const handleAddWish = (newWish) => {
         setWishes((prevWishes) => [...prevWishes, newWish]);
     };
+
+    const handleMarkAsAchieved = async (wishId) => {
+        await markAsAchieved(wishId);
+        setWishes((prevWishes) => prevWishes.filter((w) => w.id !== wishId));
+    }
     
     return(
      <div className="w-2/3 mx-auto">
@@ -45,6 +50,14 @@ const WishesTable = () => {
                                 </a>
                             </td>
                             <td className="px-4 py-2 ">${w.price.toFixed(2)}</td>
+                            
+                            <td className="text-xs">
+                                <button onClick={() => handleMarkAsAchieved(w.id)}
+                                        className="py-1 px-2 rounded-md bg-green-600 text-white
+                                                   hover:bg-green-700 transition duration-200">
+                                    Mark as achieved
+                                </button>
+                            </td>
                             <td className="px-4 py-2"><Link to={`/wish/${w.id + 1}/edit`}
                                     className="text-green-600 hover:underline mr-4">Edit</Link>
                             <Link to={`/wish/${w.id + 1}/delete`}

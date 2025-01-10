@@ -31,5 +31,14 @@ export const createWish = async(wishData) => {
     }
 }
 
+export const markAsAchieved = async(id) => {
+    try {
+        const response = await api.put(`/wishes/${id}/achieve`);
+        return response.data;
+    } catch (error) {
+        console.error("Error editing wish status:", error);
+        throw error;
+    }
+}
 
 export default api
