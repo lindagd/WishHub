@@ -16,6 +16,11 @@ Content-Type: application/json
 
 ###
 
+GET {{WishHub.Api_HostAddress}}/api/wishes/pending
+Accept: application/json
+
+###
+
 PUT {{WishHub.Api_HostAddress}}/api/wishes/1
 Content-Type: application/json
 {
@@ -41,3 +46,7 @@ Content-Type: application/json
 ###
 
 DELETE {{WishHub.Api_HostAddress}}/api/wishes/2
+
+###
+
+PUT {{WishHub.Api_HostAddress}}/api/wishes/3/achieve

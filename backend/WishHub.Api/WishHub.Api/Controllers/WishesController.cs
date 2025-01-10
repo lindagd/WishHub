@@ -38,6 +38,19 @@ namespace WishHub.Api.Controllers
             return Ok(wish);
         }
 
+        [HttpPut("{id}/achieve")]
+        public async Task<IActionResult> MarkAsAchieved(int id)
+        {
+            var wish = await _context.Wishes.FindAsync(id);
+            if (wish == null) return NotFound();
+
+            wish.Status = WishStatus.Acquired;
+            await _context.SaveChangesAsync();
+
+            //return Ok(new {Message = "Wish marked as achieved"});
+            return Ok(wish);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(Wish wish)
         {
