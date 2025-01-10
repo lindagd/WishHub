@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WishHub.Api.Data;
+using WishHub.Api.Data.Enum;
 using WishHub.Api.Models;
 
 namespace WishHub.Api.Controllers
@@ -20,6 +21,12 @@ namespace WishHub.Api.Controllers
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _context.Wishes.ToListAsync());
+        }
+
+        [HttpGet("pending")]
+        public async Task<IActionResult> GetPendingWishes()
+        {
+            return Ok(await _context.Wishes.Where(w => w.Status == WishStatus.Pending).ToListAsync());
         }
 
         [HttpGet("{id}")]
