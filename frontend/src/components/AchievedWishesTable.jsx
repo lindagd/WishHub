@@ -27,7 +27,7 @@ const AchievedWishesTable = () => {
                 You have no achieved wishes at the moment. Don't be sad. You'll get there!
             </p>
             ):(
-            <table className="w-full table-auto border-collapse bg-white shadow-lg rounded-md overflow-hidden">
+            <table className="w-full table-fixed border-collapse bg-white shadow-lg rounded-md overflow-hidden">
                 <tbody>
                     {wishes.map((w) => (
                         <tr key={w.id} className="odd:bg-pink/15

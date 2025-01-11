@@ -51,6 +51,10 @@ export const markAsAchieved = async(id) => {
     }
 }
 
+export const updateWish = async(id, updatedWish) => {
+    await api.put(`/wishes/${id}`, updatedWish);
+}
+
 export const deleteWish = async(id) => {
     try {
         await api.delete(`/wishes/${id}`);
