@@ -47,6 +47,15 @@ namespace WishHub.Api.Controllers
             return Ok(_context.Wishes.Count(w => w.Status == WishStatus.Acquired));
         }
 
+        [HttpGet("expenses")]
+        public IActionResult GetTotalSpent()
+        {
+            var totalSpent = _context.Wishes
+                .Where(w => w.Status == WishStatus.Acquired)
+                .Sum(w => w.Price);
+            return Ok(totalSpent);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
