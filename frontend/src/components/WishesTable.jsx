@@ -6,7 +6,6 @@ import DeleteWishButton from "./DeleteWishButton";
 
 const WishesTable = () => {
     const [wishes, setWishes] = useState([]);
-    const [achievedWishes, setAchievedWishes] = useState([]);
     const [editingWishId, setEditingWishId] = useState(null);
     const [editValues, setEditValues] = useState({});
 
@@ -14,14 +13,6 @@ const WishesTable = () => {
         const fetchData = async () => {
             const data = await getPendingWishes();
             setWishes(data);
-        }
-        fetchData();
-    }, []);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await getAchievedWishes();
-            setAchievedWishes(data);
         }
         fetchData();
     }, []);

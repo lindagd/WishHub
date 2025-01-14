@@ -21,6 +21,16 @@ export const getPendingWishes = async () => {
     }
 }
 
+export const getPendingWishesCount = async () => {
+    try {
+        const response = await api.get('/wishes/pending/count')
+        return response.data
+    } catch (error) {
+        console.error("Error fetching pending wishes count:", error)
+        return 0
+    }
+}
+
 export const getAchievedWishes = async () => {
     try {
         const response = await api.get('/wishes/achieved');
@@ -28,6 +38,16 @@ export const getAchievedWishes = async () => {
     } catch (error) {
         console.error("Erro fetching achieved wishes:", error);
         return [];
+    }
+}
+
+export const getAchievedWishesCount = async () => {
+    try {
+        const response = await api.get('/wishes/achieved/count')
+        return response.data
+    } catch (error) {
+        console.error("Error fetching achieved wishes count:", error)
+        return 0
     }
 }
 
