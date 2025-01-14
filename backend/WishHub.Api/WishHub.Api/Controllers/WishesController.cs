@@ -29,10 +29,22 @@ namespace WishHub.Api.Controllers
             return Ok(await _context.Wishes.Where(w => w.Status == WishStatus.Pending).ToListAsync());
         }
 
+        [HttpGet("pending/count")]
+        public IActionResult GetPendingWishesCount()
+        {
+            return Ok(_context.Wishes.Count(w => w.Status == WishStatus.Pending));
+        }
+
         [HttpGet("achieved")]
         public async Task<IActionResult> GetAchievedWishes()
         {
             return Ok(await _context.Wishes.Where(w => w.Status == WishStatus.Acquired).ToListAsync());
+        }
+
+        [HttpGet("achieved/count")]
+        public IActionResult GetAchievedWishesCount()
+        {
+            return Ok(_context.Wishes.Count(w => w.Status == WishStatus.Acquired));
         }
 
         [HttpGet("{id}")]
