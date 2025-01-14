@@ -51,6 +51,16 @@ export const getAchievedWishesCount = async () => {
     }
 }
 
+export const getTotalSpent = async () => {
+    try {
+        const response = await api.get('wishes/expenses')
+        return response.data
+    } catch (error) {
+        console.error("Errror fetching total spent:", error)
+        return 0.0
+    }
+}
+
 export const createWish = async(wishData) => {
     try {
         const response = await api.post('/wishes', wishData);

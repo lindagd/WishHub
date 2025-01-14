@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
 import '../index.css'
-import { getAchievedWishesCount, getPendingWishesCount } from "../services/api"
+import { getAchievedWishesCount, getPendingWishesCount, getTotalSpent } from "../services/api"
 
 const Sidebar = () => {
     const [pendingCount, setPendingCount] = useState(0)
     const [achievedCount, setAchievedCount] = useState(0)
+    const [totalSpent, setTotalSpent] = useState(0)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -12,6 +13,8 @@ const Sidebar = () => {
             setPendingCount(pending)
             const achieved = await getAchievedWishesCount()
             setAchievedCount(achieved)
+            const expenses = await getTotalSpent()
+            setTotalSpent(expenses)
         }
         fetchData();
     }, [])
@@ -28,7 +31,7 @@ const Sidebar = () => {
                     <div className="text-xs space-y-2">
                        <p className="font-sans">{pendingCount} Pending Wishes</p>
                         <p>{achievedCount} Completed Wishes</p>
-                        <p className="font-semibold text-blue">Total Spent: $500.00</p> 
+                        <p className="font-semibold text-blue">Total Spent: ${totalSpent.toFixed(2)}</p> 
                     </div>
                 </div>
             </div>
